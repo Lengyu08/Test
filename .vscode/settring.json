@@ -1,0 +1,146 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 20,
+    "code-runner.runInTerminal": true,
+    "terminal.integrated.profiles.windows": {
+        "PowerShell 7": {
+            "path": [
+               "D:\\Program Files\\Powershell7\\7\\pwsh.exe",
+            ],
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Bash": {
+            "path": "D:\\Program Files\\Git\\bin\\bash.exe",
+            "args": []
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.osx": "",
+
+    // vim
+    // vim 配置
+
+    // 启用系统粘贴板作为vim寄存器
+    "vim.useSystemClipboard": true,
+    // normal mode
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {"before":["d","f"],"after":["<Esc>"]},
+        {"before":["<Space>","j"],"after":["1","0","j"]}, // 快速移动
+        {"before":["<Space>","k"],"after":["1","0","k"]}, // 快速移动
+        {"before":["<Space>","l"],"after":["1","0","l"]}, // 快速移动
+        {"before":["<Space>","h"],"after":["1","0","h"]}, // 快速移动
+        {"before":["L"],"after":["$"]},
+        {"before":["H"],"after":["0"]},
+    ],
+    // 插入模式的非递归映射
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {"before":["d","f"],"after":["<Esc>"]},
+        {"before":["a","a"],"after":["<right>"]} 
+    ],
+    // 可视模式的非递归映射
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {"before":["("],"after":["x","i","(","C-v"]},        
+        {"before":["<Space>","j"],"after":["1","0","j"]}, // 快速移动
+        {"before":["<Space>","k"],"after":["1","0","k"]}, // 快速移动
+        {"before":["<Space>","l"],"after":["1","0","l"]}, // 快速移动
+        {"before":["<Space>","h"],"after":["1","0","h"]}, // 快速移动
+        {"before":["d","f"],"after":["<Esc>"]},
+        {"before":["i"],"after":["<Esc>","i"]},
+        {"before":["a"],"after":["<Esc>","a"]},
+        {"before":["o"],"after":["<Esc>","o"]}, 
+    ],
+    // 保留键位
+    "vim.handleKeys": {"<C-a>":false,"<C-f>":false,"<C-h>":false,"<C-/>":false,"<C-j>":false,"<C-c>":false,},
+    // vim of end
+    // latex
+    "latex-workshop.latex.tools": [
+        //编译工具和命令
+        {"name":"xelatex","command":"xelatex","args":["-synctex=1","-interaction=nonstopmode","-file-line-error","-pdf","%DOCFILE%"]},
+        {"name":"pdflatex","command":"pdflatex","args":["-synctex=1","-interaction=nonstopmode","-file-line-error","%DOCFILE%"]},
+        {"name":"bibtex","command":"bibtex","args":["%DOCFILE%"]}
+    ],
+    "latex-workshop.latex.recipes": [
+        {"name":"xelatex","tools":["xelatex"],},
+        {"name":"pdflatex","tools":["pdflatex"]},
+        {"name":"xe->bib->xe->xe","tools":["xelatex","bibtex","xelatex","xelatex"]},
+        {"name":"pdf->bib->pdf->pdf","tools":["pdflatex","bibtex","pdflatex","pdflatex"]}
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    // latex end
+    // code runner
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "java": "cd $dir && javac -encoding utf-8 $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc -fexec-charset=GBK $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -fexec-charset=GBK $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "python -u",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "scriptcs",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "scheme": "csi -script",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+        "nim": "nim compile --verbosity:0 --hints:off --run",
+        "lisp": "sbcl --script",
+        "kit": "kitc --run",
+        "v": "v run",
+        "sass": "sass --style expanded",
+        "scss": "scss --style expanded",
+        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "sml": "cd $dir && sml $fileName"
+    },
+    // code-runner end
+    // mardown 
+    "[markdown]": {
+        "editor.quickSuggestions": { // code suggestion
+            "other": "on",
+            "comments": "on",
+            "strings": "on"
+        }
+    },
+    "markdown.preview.fontSize": 18,
+    "explorer.compactFolders": false,
+    "markdown-preview-enhanced.previewTheme": "night.css",
+    "terminal.integrated.fontFamily": "bitstreamVeraSansMono NF",
+    // mardown  end
+}
